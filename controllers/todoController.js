@@ -38,15 +38,17 @@ async function post (req, res)  {
 }
 
 async function deleteById (req, res)  {
-  if (!req.body._id ){
-    return false
-  }
-  const result = await todoModel.deleteOne({_id : req.body._id})
-  if (!result) {
+  if (!req.body.id ){
     res.sendStatus(403).json({message : 'Not Found'})
     return false
   }
-   res.json(result)
+  const result = await todoModel.deleteOne({_id : req.body.id})
+  if (!result) {
+    res.sendStatus(403).json({message : 'Not Found'})
+    return false
+  }else{
+    res.json(result)
+  }
 }
 
 

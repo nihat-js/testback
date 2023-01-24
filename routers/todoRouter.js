@@ -12,10 +12,7 @@ router.get('/:id', todoController.getById )
 
 
 router.post('/', todoController.post )
-
-
-
-// router.delete('/', todoController.delete )
+router.delete('/', todoController.deleteById )
 
 
 
